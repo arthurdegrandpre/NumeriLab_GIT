@@ -107,6 +107,8 @@ This can be done by:
 
 ## Reproducibility exemples
 
+(external)
+
 ```{r exemple 1, eval=FALSE}
 
 r1=brick("data/test_CIR_clip_01.tif", crs="+init:epsg=26918") ; r1=r1/255

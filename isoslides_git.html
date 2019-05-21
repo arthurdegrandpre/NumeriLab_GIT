@@ -196,6 +196,8 @@ CS = ClassStat(rc)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Reproducibility exemples</h2></hgroup><article  id="reproducibility-exemples">
 
+<p>(external)</p>
+
 <pre class = 'prettyprint lang-r'>r1=brick(&quot;data/test_CIR_clip_01.tif&quot;, crs=&quot;+init:epsg=26918&quot;) ; r1=r1/255
 r1$ndvi=(r1$test_CIR_clip_01.1-r1$test_CIR_clip_01.2)/(r1$test_CIR_clip_01.1+r1$test_CIR_clip_01.2)
 r2[r2$ndvi&lt;(-0.45) | r2$test_CIR_clip_01.3&gt;0.42]=-10

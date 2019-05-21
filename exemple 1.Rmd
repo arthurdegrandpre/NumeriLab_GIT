@@ -22,6 +22,7 @@ First, a test will be conducted on a single site.
 It is based on a resampled 30cm image at 1m / pixel and will be used to obtain patch and class metrics of vegetation cover for a zone of about 150m2. 
   
 ```{r libraries, warning=FALSE, message=FALSE}
+rm(list=ls()) ; gc()
 
 library(sp)
 library(raster)
@@ -32,9 +33,20 @@ library(SDMTools)
   
 ```{r test site}
 
-r1=brick("data/ex1/test_CIR_clip_01.tif", crs="+init:epsg=26918") #small subset of 2012 mosaic made in arcmap with crs nad83 utm 18n
+### INITIAL SPECIFIC WRITING
+r1=brick("data/ex1/test_CIR_clip_01.tif") # small subset of 2012 mosaic made in arcmap corresponding CRS is NAD83 UTM 18N
 r1=r1/255 # this is to bring back the reflectance values to a 0-1 scale
-r1$ndvi=(r1$test_CIR_clip_01.1-r1$test_CIR_clip_01.2)/(r1$test_CIR_clip_01.1+r1$test_CIR_clip_01.2) # this computes the normalized difference vegetation index
+r1$ndvi=(r1$test_CIR_clip_01.1-r1$test_CIR_clip_01.2)/(r1$test_CIR_clip_01.1+r1$test_CIR_clip_01.2) # this computes the normalized difference vegetation index when band 1 is NIR, band 2 is RED, band 3 is GREEN
+###
+
+### GENERALIZED EQUIVALENT
+images_dir = "data/ex1" # directory of test image(s)
+images = dir(images_dir, pattern = ".tif$") # available rasters
+r1=brick(paste0(images_dir,"/",images[1])) # small subset of 2012 mosaic made in arcmap corresponding CRS is NAD83 UTM 18N
+r1=r1/255
+r1$ndvi=(r1[[1]]-r1[[2]])/(r1[[1]]+r1[[2]]) # this computes the normalized difference vegetation index when band 1 is NIR, band 2 is RED, band 3 is GREEN
+###
+
 plot(r1) # we see the 3 bands and the ndvi index
 hist(r1) # we see the value distribution of every band
 plotRGB(r1, scale=1, stretch="lin") # this is as CIR imagery (NIR - Red - Green)
@@ -45,10 +57,13 @@ This is the initial test rasterbrick that will be used for this exercise. it con
 
 ## landscape metrics
 
+The next step is to obtain a binary vegetation map, here based on simple tresholds (should be changed according to the image used)
+
 ```{r mask}
 
 r2=r1 # to work on a different raster than the original
-r2[r2$ndvi<(-0.45) | r2$test_CIR_clip_01.3>0.42]=-10 # a specific mask (won't be easy to generalize)
+names(r2)=c("nir","r","g","ndvi") # to set layer names
+r2[r2$ndvi<(-0.45) | r2$g>0.42]=-10 # a specific mask (won't be easy to generalize)
 plot(r2) # every bands were subsetted by the mask
 plotRGB(r2, scale=1, stretch="lin") #this is CIR imagery (NIR Red Green)
 
@@ -58,7 +73,7 @@ This new raster will be converted to binary values in the next step
 
 ```{r binarize}
 
-r3=r2$ndvi #since we only need a single band
+r3=r2$ndvi # Since we only need a single band
 r3[r3>(-10)]=1 ; r3[r3==(-10)]=0 # everything assigned to -10 is now 0, and everything else is now 1
 plot(r3)
 
