@@ -96,7 +96,7 @@
     }
   </style>
 
-  <link href="data:text/css;charset=utf-8,%0A%2Egdbar%20img%20%7B%0Awidth%3A%20300px%20%21important%3B%0Aheight%3A%20100px%20%21important%3B%0Amargin%3A%208px%208px%3B%0A%7D%0A%2Egdbar%20%7B%0Awidth%3A%20350px%20%21important%3B%0Aheight%3A%20115px%20%21important%3B%0A%7D" rel="stylesheet" type="text/css" />
+  <link href="data:text/css;charset=utf-8,%0A%2Egdbar%20img%20%7B%0Awidth%3A%20350px%20%21important%3B%0Aheight%3A%20100px%20%21important%3B%0Amargin%3A%208px%208px%3B%0A%7D%0A%2Egdbar%20%7B%0Awidth%3A%20380px%20%21important%3B%0Aheight%3A%20115px%20%21important%3B%0A%7D" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -148,30 +148,70 @@
 
 </article></slide><slide class=""><hgroup><h2>Important note</h2></hgroup><article  id="important-note">
 
+<p><img src="data:image/png;base64,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" width="240" style="display: block; margin: auto;" /></p>
+
 <p>There is no single way of doing all that&#39;s gonna be shown today.</p>
 
 <p>The following material is based on my personnal experience and what has helped me when working with collaborators.</p>
 
-<p>This is mostly an effort to make sure everyone has some basic reflexes when working on their different scripts.</p>
+<p>This is mostly an effort to make sure everyone has some basic reflexes when working on their scripts.</p>
 
-</article></slide><slide class=""><hgroup><h2>Reproducibility</h2></hgroup><article  id="reproducibility" class="build">
+</article></slide><slide class=""><hgroup><h2>Reproducibility</h2></hgroup><article  id="reproducibility">
 
-<p>While there are many ways to tackle reproducibility of an analysis, the easiest is probably to think your code for it since \(T_0\).</p>
+<pre class = 'prettyprint lang-r'>r1=brick(&quot;data/test_CIR_clip_01.tif&quot;, crs=&quot;+init:epsg=26918&quot;) ; r1=r1/255
+r1$ndvi=(r1$test_CIR_clip_01.1-r1$test_CIR_clip_01.2)/(r1$test_CIR_clip_01.1+r1$test_CIR_clip_01.2)
+r2[r2$ndvi&lt;(-0.45) | r2$test_CIR_clip_01.3&gt;0.42]=-10
+r3=r2$ndvi
+r3[r3&gt;(-10)]=1 ; r3[r3==(-10)]=0
+p=rasterToPolygons(r3, dissolve=T)
+p=disaggregate(p)
+pr=rasterize(p,r3)
+ps=PatchStat(pr)
+p@data$patchID=rownames(p@data)
+p2=merge(p,ps, by=&quot;patchID&quot;) ; p2=p2[complete.cases(p2@data),]
+rc=rasterize(p2, r3, field=&quot;ndvi&quot;)
+pv=p2[p2@data$ndvi==1,]
+pr2=rasterize(pv, r3)
+PS = PatchStat(pr2)
+CS = ClassStat(rc)</pre>
+
+</article></slide><slide class=""><hgroup><h2>Reproducibility (2)</h2></hgroup><article  id="reproducibility-2">
+
+<p>There are many ways to tackle reproducibility of an analysis, the easiest is to think your code for it since \(T_0\).</p>
 
 <p>This can be done by:</p>
 
 <ul>
-<li><p>Working by <strong>projects</strong></p></li>
-<li><p>Not procrastinating on the use of # everywhere in your code (don&#39;t hesitate to overdescribe, or even interpret results)</p></li>
-<li><p>Planning your code like you would plan a written document (flowing, logical process)</p></li>
-<li><p>Using R Markdown (Thanks <em>Lucas</em>)</p></li>
-<li><p>Structuring your code in the most generic way possible (the less specific you are, the easier it will be to transfer your code)</p></li>
-<li><p>Writing your own functions, or even packages</p></li>
+<li>Working by <strong>projects</strong></li>
+<li>Not procrastinating on the use of # everywhere in your code (don&#39;t hesitate to overdescribe, discuss results)<br/></li>
+<li>Planning your code like you would plan a written document (flowing, logical process)<br/></li>
+<li>Using R Markdown (Thanks <em>Lucas</em>)<br/></li>
+<li>Structuring your code in the most generic way possible (the less specific you are, the easier it will be to transfer your code)</li>
+<li>Writing your own functions, or even packages</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Exemples</h2></hgroup><article  id="exemples">
+</article></slide><slide class=""><hgroup><h2>Reproducibility (3)</h2></hgroup><article  id="reproducibility-3">
 
-<p>(annotation exemples, structure exemples, specific vs general coding, using functions)</p>
+<p><strong>Bottom line</strong> : Code for future you</p>
+
+</article></slide><slide class=""><hgroup><h2>Reproducibility exemples</h2></hgroup><article  id="reproducibility-exemples">
+
+<pre class = 'prettyprint lang-r'>r1=brick(&quot;data/test_CIR_clip_01.tif&quot;, crs=&quot;+init:epsg=26918&quot;) ; r1=r1/255
+r1$ndvi=(r1$test_CIR_clip_01.1-r1$test_CIR_clip_01.2)/(r1$test_CIR_clip_01.1+r1$test_CIR_clip_01.2)
+r2[r2$ndvi&lt;(-0.45) | r2$test_CIR_clip_01.3&gt;0.42]=-10
+r3=r2$ndvi
+r3[r3&gt;(-10)]=1 ; r3[r3==(-10)]=0
+p=rasterToPolygons(r3, dissolve=T)
+p=disaggregate(p)
+pr=rasterize(p,r3)
+ps=PatchStat(pr)
+p@data$patchID=rownames(p@data)
+p2=merge(p,ps, by=&quot;patchID&quot;) ; p2=p2[complete.cases(p2@data),]
+rc=rasterize(p2, r3, field=&quot;ndvi&quot;)
+pv=p2[p2@data$ndvi==1,]
+pr2=rasterize(pv, r3)
+PS = PatchStat(pr2)
+CS = ClassStat(rc)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Safekeeping</h2></hgroup><article  id="safekeeping">
 

@@ -8,9 +8,15 @@ output:
     logo: images/logo_rive_logo_txt_FR_ENG-01.png
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+rm(list=ls())
+gc()
+library(png)
+library(grid)
 ```
 
 ## Context {.build}
@@ -48,33 +54,79 @@ To do so, we will go through:
 
 ## Important note
 
+```{r warningsign, echo=FALSE, fig.height=1.5, fig.width=2.5, fig.align='center'}
+img1 = readPNG("images/warning.png")
+grid.raster(img1)
+```
+   
 There is no single way of doing all that's gonna be shown today.  
   
 The following material is based on my personnal experience and what has helped me when working with collaborators.  
   
-This is mostly an effort to make sure everyone has some basic reflexes when working on their different scripts.  
+This is mostly an effort to make sure everyone has some basic reflexes when working on their scripts.  
 
-## Reproducibility {.build}
+## Reproducibility
 
-While there are many ways to tackle reproducibility of an analysis, the easiest is probably to think your code for it since $T_0$.  
+```{r bad annotation, eval=FALSE}
+
+r1=brick("data/test_CIR_clip_01.tif", crs="+init:epsg=26918") ; r1=r1/255
+r1$ndvi=(r1$test_CIR_clip_01.1-r1$test_CIR_clip_01.2)/(r1$test_CIR_clip_01.1+r1$test_CIR_clip_01.2)
+r2[r2$ndvi<(-0.45) | r2$test_CIR_clip_01.3>0.42]=-10
+r3=r2$ndvi
+r3[r3>(-10)]=1 ; r3[r3==(-10)]=0
+p=rasterToPolygons(r3, dissolve=T)
+p=disaggregate(p)
+pr=rasterize(p,r3)
+ps=PatchStat(pr)
+p@data$patchID=rownames(p@data)
+p2=merge(p,ps, by="patchID") ; p2=p2[complete.cases(p2@data),]
+rc=rasterize(p2, r3, field="ndvi")
+pv=p2[p2@data$ndvi==1,]
+pr2=rasterize(pv, r3)
+PS = PatchStat(pr2)
+CS = ClassStat(rc)
+
+```
+
+
+## Reproducibility (2)
+There are many ways to tackle reproducibility of an analysis, the easiest is to think your code for it since $T_0$.  
   
 This can be done by: 
 
 - Working by **projects**
-
-- Not procrastinating on the use of # everywhere in your code (don't hesitate to overdescribe, or even interpret results)  
-
+- Not procrastinating on the use of # everywhere in your code (don't hesitate to overdescribe, discuss results)  
 - Planning your code like you would plan a written document (flowing, logical process)  
-
 - Using R Markdown (Thanks *Lucas*)  
-
 - Structuring your code in the most generic way possible (the less specific you are, the easier it will be to transfer your code)
-
 - Writing your own functions, or even packages  
 
-## Exemples
+## Reproducibility (3)
 
-(annotation exemples, structure exemples, specific vs general coding, using functions)
+**Bottom line** : Code for future you
+
+## Reproducibility exemples
+
+```{r exemple 1, eval=FALSE}
+
+r1=brick("data/test_CIR_clip_01.tif", crs="+init:epsg=26918") ; r1=r1/255
+r1$ndvi=(r1$test_CIR_clip_01.1-r1$test_CIR_clip_01.2)/(r1$test_CIR_clip_01.1+r1$test_CIR_clip_01.2)
+r2[r2$ndvi<(-0.45) | r2$test_CIR_clip_01.3>0.42]=-10
+r3=r2$ndvi
+r3[r3>(-10)]=1 ; r3[r3==(-10)]=0
+p=rasterToPolygons(r3, dissolve=T)
+p=disaggregate(p)
+pr=rasterize(p,r3)
+ps=PatchStat(pr)
+p@data$patchID=rownames(p@data)
+p2=merge(p,ps, by="patchID") ; p2=p2[complete.cases(p2@data),]
+rc=rasterize(p2, r3, field="ndvi")
+pv=p2[p2@data$ndvi==1,]
+pr2=rasterize(pv, r3)
+PS = PatchStat(pr2)
+CS = ClassStat(rc)
+
+```
 
 ## Safekeeping
 
