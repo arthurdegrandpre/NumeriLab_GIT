@@ -17,6 +17,8 @@ rm(list=ls())
 gc()
 library(png)
 library(grid)
+library(knitr)
+library(ggplot2)
 ```
 
 ## Context {.build}
@@ -32,9 +34,9 @@ Previous workshops have been:
 But...  
 I feel like we still have yet to tackle some of basics of *coding hygiene* like:  
 
-- How to ensure safekeeping of your scripts  
-
 - How to ensure reproducibility of analysis  
+
+- How to ensure safekeeping of your scripts  
 
 - How to collaborate efficiently in your code oriented projects  
 
@@ -44,11 +46,11 @@ The goal of this workshop is that by the end of the hour, attendees are able to 
   
 To do so, we will go through:  
 
-- How to ensure safekeeping of scripts (version control, backups, etc.)
-
 - Basic annotation tips  
 
 - How to structure scripts and projects efficiently  
+
+- How to ensure safekeeping of scripts (version control, backups, etc.)
 
 - How to share your scripts and their results  
   
@@ -64,34 +66,6 @@ There is no single way of doing all that's gonna be shown today.
 The following material is based on my personnal experience and what has helped me when working with collaborators.  
   
 This is mostly an effort to make sure everyone has some basic reflexes when working on their scripts.  
-
-## Safekeeping
-
-There are many different ways to backup your data and scripts.  
-  
-It can be done **locally**:  
-
-- using redundancy on multiple devices (backups)  
-
-- can be programmed weekly
-
-- requires different hard drives in different physical locations (some dedication)  
-
-Or **remotely**:  
-
-- Using cloud services (Dropbox, Google Drive, OneDrive, **GitHub**)
-
-- Usually very easy to use, but limited in terms of capacity
-
-- Allows easy sharing
-
-## Safekeeping (2)
-
-In most cases, both local and remote backups are necessary.  
-- Local is useful for heavier files (very large datasets, high resolution images).  
-- Remote allows easier access from different users, or different platforms.  
-  
-Some parts of the *same project* can be local only, while some others can be hosted remotely.  
 
 ## Reproducibility
 
@@ -157,4 +131,43 @@ PS = PatchStat(pr2)
 CS = ClassStat(rc)
 
 ```
+
+
+## Safekeeping
+
+The most important element of replicability is being able to keep the original work.  
+  
+There are many different ways to backup your data and scripts.  
+
+
+It can be done **locally**:  
+
+- using redundancy on multiple devices (backups)  
+
+- can be programmed weekly
+
+- requires different hard drives in different physical locations (some dedication)  
+
+## Safekeeping (2)
+
+Or **remotely**:  
+
+```{r, echo=FALSE, out.width="40%"}
+cloud_logos = list.files("images/logos/", pattern ="*1.png$", full.names = TRUE)
+include_graphics(cloud_logos)
+```
+
+```{r, echo=FALSE, out.width="25%"}
+cloud_logos = list.files("images/logos/", pattern ="*2.png$", full.names = TRUE)
+include_graphics(cloud_logos)
+```
+
+
+## Safekeeping (3)
+
+In most cases, both local and remote backups are necessary.  
+- Local is useful for heavier files (very large datasets, high resolution images).  
+- Remote allows easier access from different users, or different platforms.  
+  
+Some parts of the *same project* can be local only, while some others can be hosted remotely.  
 
