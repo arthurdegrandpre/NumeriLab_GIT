@@ -1,11 +1,13 @@
 ---
-title: "RIVE NumeriLab - Reproducibility and Collaborative coding"
+title: "NumeriLab - Reproducibility and Collaborative coding"
 author: "Arthur de Grandpré"
 date: "20 mai 2019"
 output:
   ioslides_presentation:
-    transition: slower
+    css: styles.css
+    logo: images/logo_rive_logo_txt_FR_ENG-01.png
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -20,10 +22,9 @@ Previous workshops have been:
 - Largely based on the R environment  
 
 - Giving strong numeracy bases for everyone attending  
-
-But...  
   
-I feel like we still have yet to tackle some of the very basics of *coding hygiene* like:  
+But...  
+I feel like we still have yet to tackle some of basics of *coding hygiene* like:  
 
 - How to ensure reproducibility of analysis  
 
@@ -39,7 +40,7 @@ To do so, we will go through:
 
 - Basic annotation tips  
 
-- How to structure and scripts and projects efficiently  
+- How to structure scripts and projects efficiently  
 
 - How to ensure safekeeping of scripts
 
@@ -53,13 +54,15 @@ The following material is based on my personnal experience and what has helped m
   
 This is mostly an effort to make sure everyone has some basic reflexes when working on their different scripts.  
 
-## Reproducibility
+## Reproducibility {.build}
 
 While there are many ways to tackle reproducibility of an analysis, the easiest is probably to think your code for it since $T_0$.  
   
 This can be done by: 
 
-- Not procrastinating on the use of # everywhere in your code  
+- Working by **projects**
+
+- Not procrastinating on the use of # everywhere in your code (don't hesitate to overdescribe, or even interpret results)  
 
 - Planning your code like you would plan a written document (flowing, logical process)  
 
@@ -69,4 +72,26 @@ This can be done by:
 
 - Writing your own functions, or even packages  
 
-## Examples
+## Exemples
+
+(annotation exemples, structure exemples, specific vs general coding, using functions)
+
+## Safekeeping
+
+There are many different ways to backup your data and scripts.  
+  
+It can be done **locally**:  
+
+- using redundancy on multiple devices (backups)  
+
+- can be programmed weekly
+
+- requires different hard drives in different places (some dedication)  
+
+Or **remotely**:  
+
+- Using cloud services (dropbox, google drive, onedrive, github)
+
+- Usually very easy to use, but limited in terms of capacity
+
+- Allows easy sharing
