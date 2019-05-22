@@ -133,7 +133,7 @@ CS = ClassStat(rc)
 ```
 
 
-## Safekeeping
+## Storage and Safekeeping
 
 The most important element of replicability is being able to keep the original work.  
   
@@ -148,7 +148,7 @@ It can be done **locally**:
 
 - requires different hard drives in different physical locations (some dedication)  
 
-## Safekeeping (2)
+## Storage and Safekeeping (2)
 
 Or **remotely**:  
 
@@ -163,11 +163,12 @@ include_graphics(cloud_logos)
 ```
 
 
-## Safekeeping (3)
+## Storage and Safekeeping (3)
 
 In most cases, both local and remote backups are necessary.  
 - Local is useful for heavier files (very large datasets, high resolution images).  
 - Remote allows easier access from different users, or different platforms.  
   
 Some parts of the *same project* can be local only, while some others can be hosted remotely.  
-
+  
+**So what should be saved where and how?**
