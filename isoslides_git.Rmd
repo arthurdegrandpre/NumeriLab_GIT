@@ -216,13 +216,83 @@ script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TR
 include_graphics(script_images[5])
 ```
 
-but it can still be improved
+And this is after cleaning up... and only on my own laptop.  
+  
+But that's just not good enough for collaborative projects because of the very fast versionning of every files.
 
-## Version control
+## Version Control Systems (VCS)
 
-The solution is the use of version control systems, such as *Git*.
+One of the solutions to those problems, is the use of **version control systems**, such as *Git* (or many other, such as SVN, GitHub, etc).
+
+```{r, echo=FALSE, out.width="60%"}
+script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
+include_graphics(script_images[6])
+```
+
+Stores any files and tacks *changes* occuring in them.
+
+## Git
 
 ```{r, echo=FALSE, out.width="20%"}
 git_logo = list.files("images/logos/", pattern ="*3.png$", full.names = TRUE)
 include_graphics(git_logo)
 ```
+
+*Git* has its own simple language and can be implementend in most operating systems.  
+
+It is based on **repositories** containing the latest updates *commited* by any user.  
+
+**Commits** act as snapshots, which can always be reverted to.  
+
+Being *decentralised*, it is especially effective for collaborative work. 
+
+## Git workflow
+
+1. Clone / Pull / Fork/ Initialise a repository   
+2. work  
+3. commit changes locally  
+5. push changes to remote repository (GitHub)  
+
+To learn about the basic commands : https://www.youtube.com/watch?v=SWYqp7iY_Tc very good ~30min tutorial
+
+## Other Git related things
+
+*staging*
+*.gitignore*
+*storage capacity*
+*branching and merging*
+
+*GUI vs commands*
+
+## Version Control : Branches
+
+**2:** Allows users to work on different versions of the same repository called **branches**.  
+Those can be merged back into the original (Master) branch (or not).
+
+```{r, echo=FALSE, out.width="60%"}
+git_images = list.files("images/git/", full.names = TRUE)
+include_graphics(git_images[1])
+```
+
+## GitHub
+
+GitHub is basically a cloud for Git.  
+
+It allows users to publish their repositories privately or publicly, allowing other users to clone them and collaborate.
+It interacts very efficiently with the Git language and has a very nice GUI application (GitHub Desktop)
+
+Specs: 
+- no user disk quotas
+- hard limit of 100Gb / repo
+- hard limit of 100Mb / file (!)
+
+This means:
+- Bigger files should be kept *out* of GitHub (In any case, your bigger, original files should be backed locally by every collaborator)
+- Ligther files (subsets) should be used while building the code and working with GitHub (which makes sense for collaborative purposes)
+- This is where .gitignore becomes useful
+
+## Honorable mentions
+
+- Dropbox
+
+- RStudioCloud
