@@ -172,3 +172,35 @@ In most cases, both local and remote backups are necessary.
 Some parts of the *same project* can be local only, while some others can be hosted remotely.  
   
 **So what should be saved where and how?**
+
+## exemple 2
+
+## 2.1
+```{r, echo=FALSE, out.width="85%"}
+script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
+include_graphics(script_images[1])
+```
+
+## 2.2
+```{r, echo=FALSE, out.width="85%"}
+script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
+include_graphics(script_images[2])
+```
+
+## 2.3
+```{r, echo=FALSE, out.width="85%"}
+script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
+include_graphics(script_images[3])
+```
+
+## 2.4
+```{r, echo=FALSE, out.width="85%"}
+script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
+include_graphics(script_images[4])
+```
+
+## 2.5
+```{r, echo=FALSE, out.width="85%"}
+script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
+include_graphics(script_images[5])
+```
