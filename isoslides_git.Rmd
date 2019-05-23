@@ -175,32 +175,54 @@ Some parts of the *same project* can be local only, while some others can be hos
 
 ## exemple 2
 
-## 2.1
+Most of us, at one point or another, had to realize that the way we organize our scripts and projects is sub-optimal.  
+
+For me, that happened two years ago, when I had to make multiple scripts with multiples collaborators for the same project.  
+  
+We all had different versions of every code and every database in multiple locations.
+
+## location 1
+
 ```{r, echo=FALSE, out.width="85%"}
 script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
 include_graphics(script_images[1])
 ```
 
-## 2.2
+## location 2
+
 ```{r, echo=FALSE, out.width="85%"}
 script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
 include_graphics(script_images[2])
 ```
 
-## 2.3
+## location 3
+
 ```{r, echo=FALSE, out.width="85%"}
 script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
 include_graphics(script_images[3])
 ```
 
-## 2.4
+## location 4
+
 ```{r, echo=FALSE, out.width="85%"}
 script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
 include_graphics(script_images[4])
 ```
 
-## 2.5
+## location 5
+
 ```{r, echo=FALSE, out.width="85%"}
 script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
 include_graphics(script_images[5])
+```
+
+but it can still be improved
+
+## Version control
+
+The solution is the use of version control systems, such as *Git*.
+
+```{r, echo=FALSE, out.width="20%"}
+git_logo = list.files("images/logos/", pattern ="*3.png$", full.names = TRUE)
+include_graphics(git_logo)
 ```
