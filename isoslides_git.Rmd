@@ -159,7 +159,7 @@ include_graphics(cloud_logos)
 
 ```{r, echo=FALSE, out.width="25%"}
 cloud_logos = list.files("images/logos/", pattern ="*2.png$", full.names = TRUE)
-include_graphics(cloud_logos)
+include_graphics(cloud_logos) # test
 ```
 
 
