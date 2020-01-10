@@ -2,7 +2,10 @@
 title: "chap.1 pattern detection thresholds"
 author: "Arthur de Grandpré"
 date: "26 février 2019"
-output: html_document
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -28,6 +31,7 @@ library(sp)
 library(raster)
 library(rgdal)
 library(SDMTools)
+library(tidyverse)
 
 ```
   
@@ -113,3 +117,10 @@ PS = PatchStat(pr2) # calculates statistics for every patches
 CS = ClassStat(rc) # calculates statistics for the whole vegetation class
 
 ```
+
+We now have patch and class stats for our data
+
+```{r}
+as.tibble(PS)
+```
+

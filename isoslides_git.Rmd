@@ -34,7 +34,7 @@ Previous workshops have been:
 But...  
 I feel like we still have yet to tackle some of basics of *coding hygiene* like:  
 
-- How to ensure reproducibility of analysis  
+- How to ensure reproducibility of analysis   
 
 - How to ensure safekeeping of your scripts  
 
@@ -50,7 +50,7 @@ To do so, we will go through:
 
 - How to structure scripts and projects efficiently  
 
-- How to ensure safekeeping of scripts (version control, backups, etc.)
+- How to ensure safekeeping of scripts (version control, backups, etc.)  
 
 - How to share your scripts and their results  
   
@@ -99,7 +99,7 @@ This can be done by:
 - Working by **projects**
 - Not procrastinating on the use of # *everywhere* in your code (don't hesitate to overdescribe, discuss results)  
 - Planning your code like you would plan a written document (flowing, logical process)  
-- Using R Markdown (Thanks *Lucas*)  
+- Using Notebooks: R Markdown (Thanks *Lucas*), Jupyter, LiveScript (for Matlab) 
 - Structuring your code in the most generic way possible (the less specific you are, the easier it will be to transfer your code)
 - Writing your own functions, or even packages  
 
@@ -109,7 +109,7 @@ This can be done by:
 
 ## Reproducibility exemples
 
-(external)
+(external: see exemple_1.rmd )
 
 ```{r exemple 1, eval=FALSE}
 
@@ -142,15 +142,15 @@ There are many different ways to backup your data and scripts.
 
 It can be done **locally**:  
 
-- using redundancy on multiple devices (backups)  
+- using redundancy on multiple devices (backups, local or network (server, NAS, etc.))  
 
-- can be programmed weekly
+- can be scheduled or done manually
 
 - requires different hard drives in different physical locations (some dedication)  
 
 ## Storage and Safekeeping (2)
 
-Or **remotely**:  
+Or **remotely.. with Caution**:  
 
 ```{r, echo=FALSE, out.width="40%"}
 cloud_logos = list.files("images/logos/", pattern ="*1.png$", full.names = TRUE)
@@ -167,11 +167,13 @@ include_graphics(cloud_logos) # test
 
 In most cases, both local and remote backups are necessary.  
 - Local is useful for heavier files (very large datasets, high resolution images).  
-- Remote allows easier access from different users, or different platforms.  
+- Remote allows easier access from different users, or different platforms, but might be unreliable.  
   
 Some parts of the *same project* can be local only, while some others can be hosted remotely.  
   
-**So what should be saved where and how?**
+**So what should be saved where and how?**  
+  
+## Solo vs Collab
 
 ## exemple 2
 
@@ -230,7 +232,7 @@ script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TR
 include_graphics(script_images[6])
 ```
 
-Stores any files and tacks *changes* occuring in them.
+Stores any files and tracks *changes* occuring in them.
 
 ## Git
 
@@ -245,7 +247,7 @@ It is based on **repositories** containing the latest updates *commited* by any 
 
 **Commits** act as snapshots, which can always be reverted to.  
 
-Being *decentralised*, it is especially effective for collaborative work. 
+Being easily *decentralised*, it is especially effective for collaborative work. 
 
 ## Basic Git workflow
 
@@ -292,6 +294,14 @@ This means:
 - Bigger files should be kept *out* of GitHub (In any case, your bigger, original files should be backed locally by every collaborator)
 - Ligther files (subsets) should be used while building the code and working with GitHub (which makes sense for collaborative purposes)
 - This is where .gitignore becomes useful
+
+## Git as a language vs Git as a tool
+
+The most basic Git implementations can be very difficult at first because Git is foremost a *programming language*.  
+  
+It can be difficult to bring a new language in your workflow without making the processing feel heavier than necessary.
+  
+Many alternatives to coding exist when using Git : RStudio, Github Desktop, etc. They can make Git MUCH easier.
 
 ## Honorable mentions
 
