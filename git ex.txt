@@ -1,0 +1,50 @@
+create folder
+open git bash here
+
+ls
+ls -a
+
+git config --global user.name <>
+git config --global user.email <>
+
+git init
+ls
+ls -a
+
+git status
+mkdir "scripts"
+touch "scripts/myscript.R"
+git status
+git add "scripts/myscript.R"
+git status
+
+git commit -m "created myscript.R"
+
+git status
+git log
+
+ajouter du code dans myscript.R : data(cars) ; hist(cars$speed) (save)
+
+git add .
+git commit -m "coder quelques lignes dans myscript"
+
+git log
+git checkout <>
+git switch -
+
+git branch plot
+git checkout plot
+
+ajouter code dans myscript : changer hist pour plot (save)
+git add .
+git commit -m "made a plot"
+
+git checkout master
+
+git merge plot : résoudre les conflits
+
+open RStudio
+make a new project
+enable Git
+look at the functionnalities
+

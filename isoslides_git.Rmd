@@ -278,6 +278,18 @@ git_images = list.files("images/git/", full.names = TRUE)
 include_graphics(git_images[1])
 ```
 
+## exercise : Git bash
+
+1. install Git
+2. configure Git (git config --global user.name "name" & git config --global user.email "your@email.com")
+3. init a repo (git init)
+4. stage/track (touch xx.html, git add, git status)
+5. commit (git commit -m "message")
+6. history (git log)
+7. return (git checkout <hash>)
+8. branching (git branch, git checkout, git branch <name>, git checkout)
+9. merging branches (git merge <name>)
+
 ## GitHub
 
 GitHub is basically a cloud for Git.  
@@ -305,6 +317,8 @@ Many alternatives to coding exist when using Git : RStudio, Github Desktop, etc.
 
 ## Honorable mentions
 
-- Dropbox
+- Dropbox  
+  
+- RStudioCloud  
 
-- RStudioCloud
+
