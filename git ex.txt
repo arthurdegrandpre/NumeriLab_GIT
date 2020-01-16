@@ -45,8 +45,15 @@ git checkout master
 
 git merge plot : résoudre les conflits
 
+GITHUB : CREATE ACCOUNT, CONNECT, CREATE A NEW REPOSITORY
+
 open RStudio
-make a new project
 enable Git
+restart R
+File > new project > from git > URL > look at functionnalities
+push / pull, also works with git bash (which can also push and pull to github)
+
++ github desktop
+
 look at the functionnalities
 
