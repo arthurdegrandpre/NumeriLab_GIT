@@ -100,7 +100,7 @@ This can be done by:
 - Not procrastinating on the use of # *everywhere* in your code (don't hesitate to overdescribe, discuss results)  
 - Planning your code like you would plan a written document (flowing, logical process)  
 - Using Notebooks: R Markdown (Thanks *Lucas*), Jupyter, LiveScript (for Matlab) 
-- Structuring your code in the most generic way possible (the less specific you are, the easier it will be to transfer your code)
+- Writing your code in the most generic way possible (the less specific you are, the easier it will be to transfer your code)
 - Writing your own functions, or even packages  
 
 ## Reproducibility (3)
@@ -172,8 +172,7 @@ In most cases, both local and remote backups are necessary.
 Some parts of the *same project* can be local only, while some others can be hosted remotely.  
   
 **So what should be saved where and how?**  
-  
-## Solo vs Collab
+Depends on project, collaborators, etc. (plan ahead)
 
 ## exemple 2
 
@@ -298,14 +297,13 @@ It allows users to publish their repositories privately or publicly, allowing ot
 It interacts very efficiently with the Git language and has a very nice GUI application (GitHub Desktop)
 
 Specs: 
-- no user disk quotas
-- hard limit of 100Gb / repo
-- hard limit of 100Mb / file (!)
+- no user disk quotas  
+- hard limit of 100Gb / repo  
+- hard limit of 100Mb / file (!)  
 
-This means:
-- Bigger files should be kept *out* of GitHub (In any case, your bigger, original files should be backed locally by every collaborator)
-- Ligther files (subsets) should be used while building the code and working with GitHub (which makes sense for collaborative purposes)
-- This is where .gitignore becomes useful
+This means:  
+- Bigger files should be kept *out* of GitHub (In any case, your bigger, original files should be backed locally by every collaborator)  
+- Ligther files (subsets) should be used while building the code and working with GitHub (which makes sense for collaborative purposes)  
 
 ## Git as a language vs Git as a tool
 
@@ -313,7 +311,7 @@ The most basic Git implementations can be very difficult at first because Git is
   
 It can be difficult to bring a new language in your workflow without making the processing feel heavier than necessary.
   
-Many alternatives to coding exist when using Git : RStudio, Github Desktop, etc. They can make Git MUCH easier.
+Many alternatives to coding exist when using Git : RStudio, Github Desktop, etc. They can make Git much easier.
 
 ## Honorable mentions
 
