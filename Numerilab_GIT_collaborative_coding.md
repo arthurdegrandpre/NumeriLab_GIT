@@ -11,14 +11,7 @@ output:
     toc_float: true
 ---
 
-```{r setup, include=F, echo=F, warning=FALSE, message=FALSE}
-rm(list=ls())
-gc()
-library(png)
-library(grid)
-library(knitr)
-library(ggplot2)
-```
+
 
 
 
@@ -62,10 +55,7 @@ To do so, we will go through:
   
 # Important note
 
-```{r warningsign, echo=FALSE, fig.height=1.5, fig.width=2.5, fig.align='center'}
-img1 = readPNG("images/warning.png")
-grid.raster(img1)
-```
+<img src="Numerilab_GIT_collaborative_coding_files/figure-html/warningsign-1.png" style="display: block; margin: auto;" />
    
 There is no single recipe of preparing, cleaning and safekeeping your work. The following is just based on personnal experience and research, but the most important is to find your own way of being efficient with sufficient clarity for being able to share your work. 
 see https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970 for more insight on the topic.    
@@ -80,8 +70,8 @@ This section is mostly about how to make your code in a way that is understandab
 
 We have all written or recieved pieces of code that can look like the following:
 
-```{r bad annotation, eval=FALSE}
 
+```r
 r1=brick("data/test_CIR_clip_01.tif", crs="+init:epsg=26918") ; r1=r1/255
 r1$ndvi=(r1$test_CIR_clip_01.1-r1$test_CIR_clip_01.2)/(r1$test_CIR_clip_01.1+r1$test_CIR_clip_01.2)
 r2[r2$ndvi<(-0.45) | r2$test_CIR_clip_01.3>0.42]=-10
@@ -119,7 +109,8 @@ This can be done by:
 
 Looking back to the the previous exemple, many things can be modified to make it easier to handle. This is the same code, slightly modified to make collaborative coding easier.  
 
-```{r exemple 1, eval=FALSE}
+
+```r
 #### landscape metrics extraction ####
 
 # input raster data
@@ -183,15 +174,9 @@ It can be done **locally**:
 
 Or **remotely.. with Caution**:  
 
-```{r, echo=FALSE, out.width="40%", fig.align='left'}
-cloud_logos = list.files("images/logos/", pattern ="*1.png$", full.names = TRUE)
-include_graphics(cloud_logos)
-```
+<img src="images/logos/dropbox1.png" width="40%" style="display: block; margin: auto auto auto 0;" /><img src="images/logos/onedrive1.png" width="40%" style="display: block; margin: auto auto auto 0;" />
 
-```{r, echo=FALSE, out.width="20%", fig.align='left'}
-cloud_logos = list.files("images/logos/", pattern ="*2.png$", full.names = TRUE)
-include_graphics(cloud_logos) # test
-```
+<img src="images/logos/github2.png" width="20%" style="display: block; margin: auto auto auto 0;" /><img src="images/logos/googledrive2.png" width="20%" style="display: block; margin: auto auto auto 0;" />
 
 Some services have paywalls or hard limits that can cause issues. Also, it should never be completely trusted that your files are safe on a remote server.
 
@@ -215,38 +200,23 @@ All of us had different versions of every code and every database in multiple lo
 
 Location 1
 
-```{r, echo=FALSE, out.width="85%"}
-script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
-include_graphics(script_images[1])
-```
+<img src="images/scripts/exemple21.jpg" width="85%" />
 
 Location 2
 
-```{r, echo=FALSE, out.width="85%"}
-script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
-include_graphics(script_images[2])
-```
+<img src="images/scripts/exemple22.jpg" width="85%" />
 
 Location 3
 
-```{r, echo=FALSE, out.width="85%"}
-script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
-include_graphics(script_images[3])
-```
+<img src="images/scripts/exemple23.jpg" width="85%" />
 
 Location 4
 
-```{r, echo=FALSE, out.width="85%"}
-script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
-include_graphics(script_images[4])
-```
+<img src="images/scripts/exemple24.jpg" width="85%" />
 
 Location 5
 
-```{r, echo=FALSE, out.width="85%"}
-script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
-include_graphics(script_images[5])
-```
+<img src="images/scripts/exemple25.jpg" width="85%" />
 
 That is just **not good enough** for collaborative projects because of the very fast versionning of every files, by multiple users.
 
@@ -254,19 +224,13 @@ That is just **not good enough** for collaborative projects because of the very 
 
 One of the strongest solutions to those problems is the use of **version control systems**, such as *Git* (or many other, such as SVN, GitHub, etc). When combined with a clean project approach and the use of tools such as RMarkdown, it allows for the same project to be held within a very simple directory such as the following one :
 
-```{r, echo=FALSE, out.width="60%"}
-script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
-include_graphics(script_images[6])
-```
+<img src="images/scripts/exemple26.jpg" width="60%" />
 
 Where all users can stores files and track *changes* occuring in them, while keeping each others environment free of useless clutter.
 
 ## Git
 
-```{r, echo=FALSE, out.width="20%"}
-git_logo = list.files("images/logos/", pattern ="*3.png$", full.names = TRUE)
-include_graphics(git_logo)
-```
+<img src="images/logos/Git-Logo-3.png" width="20%" />
 
 *Git* has its own simple language and can be implementend in most operating systems.  
 
@@ -296,10 +260,7 @@ very good ~30min tutorial (the equivalent will be done LIVE during the workshop)
 
 *branching and merging* : Branching and merging are ways for different versions of a project to co-exist. I your team wants to develop multiple functions in a single workflow, one branch could be developped for every function, and then they can be merged together into another branch. this allows for parallel work, or simply to keep different versions intact. While this may be intimidating at first, playing with the branching function is quite easy and you will familiarise with it very fast.
 
-```{r, echo=FALSE, out.width="70%"}
-git_images = list.files("images/git/", full.names = TRUE)
-include_graphics(git_images[1])
-```
+<img src="images/git/git1.png" width="70%" />
 
 
 ## exercise : Git bash
