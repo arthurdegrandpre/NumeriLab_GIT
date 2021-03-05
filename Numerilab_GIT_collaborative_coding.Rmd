@@ -4,11 +4,8 @@ author: "Arthur de Grandpré"
 date: "12 août 2020"
 output: 
   html_document: 
-    highlight: haddock
-    keep_md: yes
-    theme: readable
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
 ---
 
 ```{r setup, include=F, echo=F, warning=FALSE, message=FALSE}
@@ -22,33 +19,33 @@ library(ggplot2)
 
 
 
-**Disclaimer: This document is material for a live 1h30 workshop and might feel incomplete out of it's context.**
+**Disclaimer: This document is material for a live 90 minute workshop and might feel incomplete out of context.**
 
 
-# Why a workshop about collaborative coding and Git?
+# Why a workshop about reproducibility, collaborative coding and Git?
 
 Previous workshops have been :   
 
-- Dedicated to enhancing coding and data science level
+- Dedicated to enhancing coding and data science skills
 
 - Largely based on the R environment  
 
-- Giving strong numeracy bases for everyone attending  
+- Providing a strong foundation in numeracy
   
-But, as being mostly looking at code as ecologists, it feels like we still have yet to tackle some of basics of *coding hygiene* that should be expected in data science like:  
+But, as most of us are ecologists as opposed to professional programmers, our previous workshops had foregone an important dimension of data science, i.e. basic *coding hygiene* that should be expected to :  
 
-- How to ensure reproducibility of analysis   
+- Ensure reproducibility of analysis   
 
-- How to ensure safekeeping of data and scripts  
+- Ensure safe archiving of data and scripts  
 
-- How to collaborate efficiently in your code oriented projects  
+- Allow for efficient collaboration in your coding projects  
 
-May it be with yourself or with others, we need to be able to work efficiently to ensure clarity and reproducibility in science. This workshop is about tips and tricks to make your work more collab-friendly.
+Regardless of whether you are working alone or in collaboration with others, we all need to be able to work efficiently to ensure clarity and reproducibility in science. This workshop is about tips and tricks to make your work more reproducible and collab-friendly.
 
 
 # Planning
 
-The goal of this workshop is that by the end of the hour, attendees are able to figure out their own recipe for efficient collaborative coding.  
+The goal of this workshop is that by the end of the hour and a half, attendees are able to figure out their own recipe for version control and efficient collaborative coding.  
   
 To do so, we will go through:  
 
@@ -56,7 +53,7 @@ To do so, we will go through:
 
 - How to structure scripts and projects efficiently  
 
-- How to ensure safekeeping of scripts (version control, backups, etc.)  
+- How to ensure archiving of scripts (version control, backups, etc.)  
 
 - How to share your scripts and their results  
   
@@ -67,18 +64,18 @@ img1 = readPNG("images/warning.png")
 grid.raster(img1)
 ```
    
-There is no single recipe of preparing, cleaning and safekeeping your work. The following is just based on personnal experience and research, but the most important is to find your own way of being efficient with sufficient clarity for being able to share your work. 
-see https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970 for more insight on the topic.    
+There is no single best recipe for preparing, cleaning and safekeeping your work. The following is just based on personal experience and research, but the most important thing is to find your own way of being efficient with sufficient clarity to be able to share your work. 
+See https://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970 for more insight on the topic.    
   
 This is mostly an effort to make sure everyone has some basic reflexes when working on their scripts.  
 
 # Annotate for reproducibility
 
-One of the pillars of science is reproducibility of results. Sadly, it is also one of the most neglected. Some authors even consider we are going through a reproducibility crisis, where a lot of the published science is actually quite obscure, with incomprehensible or unavailable methods and codes.
+One of the pillars of science is reproducibility of results. Sadly, it is also one of the most neglected aspects of our work. Some authors even consider that we are going through a reproducibility crisis, in which a lot of the published science is actually quite obscure, with incomprehensible or unavailable methods and software codes.
 
-This section is mostly about how to make your code in a way that is understandable by others, but also yourself when you go back to it after a few months (or years) working on something else.
+This section is mostly about how to write your code in a way that is understandable to others, but also yourself when you go back to it after a few months (or years) working on something else.
 
-We have all written or recieved pieces of code that can look like the following:
+We have all written or received chunks of code that can look like the following:
 
 ```{r bad annotation, eval=FALSE}
 
@@ -100,24 +97,26 @@ PS = PatchStat(pr2)
 CS = ClassStat(rc)
 ```
 
-Scripts that work, or have worked in the past, but that would be really difficult to use again since it contains absolutely no indication on what it's supposed to do, what is the data and how it is transformed.
+Scripts that work, or have worked in the past, but that would be really difficult to use again since they contain absolutely no indication about what they are supposed to do, or what the data are and how they are transformed.
 
-There are many ways to tackle reproducibility of an analysis, the easiest is to think your code for it since $T_0$.  
+There are many ways to tackle reproducibility of an analysis; the easiest is to plan your code for it since $T_0$.  
   
 This can be done by: 
 
-- Working by **projects**
-- Not procrastinating on the use of # *everywhere* to annotate your code (don't hesitate to overdescribe, even discuss results in some cases)  
+- Working with **projects**
+- Not procrastinating on the use of # *everywhere* to annotate your code (don't hesitate to over describe, and even discuss results in some cases)  
 - Planning your code like you would plan a written document (flowing, logical process)  
-- Using Notebooks: R Markdown (Thanks *Lucas* for his workshop on the subject), Jupyter, LiveScript (for Matlab) 
+- Using Notebooks (sometimes!): R Markdown (Thanks *Lucas* for his workshop on the subject), Jupyter (for Python), LiveScript (for Matlab)  
 - Writing your code in the most generic way possible (the less specific you are, the easier it will be to transfer your code)
-- Writing your own functions, or even packages  
+- Writing your own functions and including those in the R project. You could even consider transforming your project into an R package  
+(if you want to do so, check out the package "roxygen2" and the following tutorial:  
+https://tinyheero.GitHub.io/jekyll/update/2015/07/26/making-your-first-R-package.html)  
 
 
 **Bottom line** : Code for future you if not for others
 
 
-Looking back to the the previous exemple, many things can be modified to make it easier to handle. This is the same code, slightly modified to make collaborative coding easier.  
+In the previous example, several things can be modified to make it easier to handle. This is the same code, slightly modified to make collaborative coding easier.  
 
 ```{r exemple 1, eval=FALSE}
 #### landscape metrics extraction ####
@@ -159,16 +158,16 @@ ps=PatchStat(pr) # ps will contain landscape patch statistics for every patch.
 ### end of landscape metrics extraction
 ```
 
-- the section is named  
+- the section and subsections are named  
 - all functions are annotated to say why they are used  
 - some choices are justified directly  
-- the input and output are identified, and the paths are made in a way that can use any file names, as long as it has the right format and it is put inside the project's data folder
+- the input and output are identified, and the paths are made in a way that any file name can be used, as long as it has the right format and it is put inside the project's data folder
 - there are some warnings about things that could change based on the nature of the input data
 
 
 # Storage and Safekeeping
 
-Another very most important element of reproducibility is being able to keep the original work.  
+Another most important element of reproducibility is being able to keep the original work.  
   
 There are many different ways to safely keep your data and scripts.  
 
@@ -193,25 +192,26 @@ cloud_logos = list.files("images/logos/", pattern ="*2.png$", full.names = TRUE)
 include_graphics(cloud_logos) # test
 ```
 
-Some services have paywalls or hard limits that can cause issues. Also, it should never be completely trusted that your files are safe on a remote server.
+Some services have paywalls or hard limits that can cause issues. Also, it should never be assumed that your files are safe on a remote server.
 
 In most cases, both local and remote backups are necessary.  
-- Local is useful for heavier files (very large datasets, high resolution images).  
-- Remote allows easier access from different users, or different platforms, but might be unreliable.  
+- Local is useful for larger files (very large datasets, high resolution images).  
+- Remote allows for easier access by different users, or through different platforms, but might be unreliable.  
+- Some services are not considered “secure” for sensitive data. For example, many universities prefer institutional OneDrive accounts over Dropbox or Google Drive. Some collaborators (e.g., government ministries) may not allow you to store some of their data on some cloud services. Check with your IT service and your collaborators before uploading datasets that might include sensitive information.  
   
-Some parts of the *same project*, such as large datasets, can be local only, while some others can be hosted remotely, such as scripts.  
+Some parts of the *same project*, such as large datasets, can be local only, while others can be hosted remotely, such as scripts.  
   
-**So what should be saved where and how?**  
-Depends on project, collaborators, etc. (plan ahead)
+**So what should be saved, where and how?**  
+It depends on the project, collaborators, etc. (plan ahead)
 
-## Exemple of bad data handling
+## Example of bad data handling
 
 At one point or another, most of us realize that the way we organize our scripts and projects is BAD.  
 
-For me, it happened when I started collaborating with others...  
+This happened to me when I started collaborating with others...  
 Multiple scripts with multiple collaborators for the same project.  
   
-All of us had different versions of every code and every database in multiple locations. Those screenshots are from my laptop only, AFTER cleaning up.
+All of us had different versions of scripts and databases in multiple locations. Those screenshots are from my laptop, AFTER cleaning up.
 
 Location 1
 
@@ -248,18 +248,18 @@ script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TR
 include_graphics(script_images[5])
 ```
 
-That is just **not good enough** for collaborative projects because of the very fast versionning of every files, by multiple users.
+That is just **not good enough** for collaborative projects because of the very fast versioning of many files, by multiple users.
 
 # Version Control Systems (VCS)
 
-One of the strongest solutions to those problems is the use of **version control systems**, such as *Git* (or many other, such as SVN, GitHub, etc). When combined with a clean project approach and the use of tools such as RMarkdown, it allows for the same project to be held within a very simple directory such as the following one :
+One of the best solutions to those problems is the use of **version control systems**, such as *Git* (or many others, such as SVN, CSV, Mercurial, etc). When combined with a clean project approach and the use of tools such as RMarkdown, it allows for the same project to be held within a very simple directory such as the following one :
 
 ```{r, echo=FALSE, out.width="60%"}
 script_images = list.files("images/scripts/", pattern ="*.jpg$", full.names = TRUE)
 include_graphics(script_images[6])
 ```
 
-Where all users can stores files and track *changes* occuring in them, while keeping each others environment free of useless clutter.
+Where all users can store files and track *changes* occurring in them, while keeping each others environment free of clutter.
 
 ## Git
 
@@ -268,13 +268,13 @@ git_logo = list.files("images/logos/", pattern ="*3.png$", full.names = TRUE)
 include_graphics(git_logo)
 ```
 
-*Git* has its own simple language and can be implementend in most operating systems.  
+*Git* is its own language and can be implemented in most operating systems.  
 
 It is based on **repositories** containing the latest updates *commited* by any user.  
 
-**Commits** act as snapshots, which can always be reverted to.  
+**Commits** act as snapshots, which can always be reverted to a previous state (e.g. a prior commit).  
 
-Being easily *decentralised*, it is especially effective for collaborative work using github, notably. 
+Being easily *decentralized*, it is especially effective for collaborative work using GitHub, or Gitlab notably. 
 
 ## Basic Git workflow
 
@@ -288,13 +288,14 @@ very good ~30min tutorial (the equivalent will be done LIVE during the workshop)
 
 ## Other Git related things
 
-*GUI vs commands* : There are many environments that allow the use of Git. The most basic one is gitbash, where all commands must be written by hand. Some programs, like Rstudio, have their own implementation of Git within their own UI. It is also possible to have external programs to help you with git, such as gitkraken, or even github desktop, which facilitates the use of github on your personnal pc.
+*GUI vs commands* : There are many environments that allow the use of Git. The most basic one is gitbash, where all commands must be written by hand. Some programs, like RStudio, have their own implementation of Git within their own UI. It is also possible to have external programs to help you with git, such as Gitkraken, or GitHub desktop, which facilitates the use of GitHub on your personal computer.
 
-*.gitignore* : a text file named .gitignore in your repo will tell Git which files should be ignored  
+*.gitignore* : a text file named .gitignore in your repo will tell Git which files should be ignored.  
+For mac users who have a .DS_Store file in each folder (which you probably do not want to upload), the following [website](https://pineco.de/snippets/globally-gitignore-the-ds_store-file/) helps you tell Git to always ignore these files.    
 
-*storage capacity* : While a git repository is generally quite light, github won't accept very large commits. do think about other ways of storing large files.  
+*storage capacity* : A git repository is generally has little storage capacity; GitHub won't accept very large commits. Think about other ways of storing large files.  
 
-*branching and merging* : Branching and merging are ways for different versions of a project to co-exist. I your team wants to develop multiple functions in a single workflow, one branch could be developped for every function, and then they can be merged together into another branch. this allows for parallel work, or simply to keep different versions intact. While this may be intimidating at first, playing with the branching function is quite easy and you will familiarise with it very fast.
+*branching and merging* : Branching and merging are ways for different versions of a project to co-exist. If your team wants to develop multiple functions in a single workflow, one branch could be developed for every function, and then they can be merged together into another branch. This allows for parallel work, or simply for keeping different versions intact. While this may be intimidating at first, playing with the branching function is quite easy and you will familiarize yourself with it very fast.
 
 ```{r, echo=FALSE, out.width="70%"}
 git_images = list.files("images/git/", full.names = TRUE)
@@ -314,9 +315,9 @@ include_graphics(git_images[1])
 8. branching (git branch, git checkout, git branch <name>, git checkout)
 9. merging branches (git merge <name>)
 
-## GitHub
+## GitHub (or its alternatives : Gitlab and Bitbucket)
 
-GitHub is basically a cloud for Git.  
+GitHub is basically a cloud service for Git.  
 
 It allows users to publish their repositories privately or publicly, allowing other users to clone them and collaborate.
 It interacts very efficiently with the Git language and has a very nice GUI application (GitHub Desktop)
@@ -327,8 +328,8 @@ Specs:
 - hard limit of 100Mb / file (!)  
 
 This means:  
-- Bigger files should be kept *out* of GitHub (In any case, your bigger, original files should be backed locally by every collaborator)  
-- Ligther files (subsets) should be used while building the code and working with GitHub (which makes sense for collaborative purposes)  
+- Larger files should be kept *out* of GitHub (In any case, your bigger, original files should be backed locally by every collaborator)  
+- Smaller files (subsets) should be used while building the code and working with GitHub (which makes sense for collaborative purposes)  
 
 ## Git as a language vs Git as a tool
 
@@ -336,11 +337,7 @@ The most basic Git implementations can be very difficult at first because Git is
   
 It can be difficult to bring a new language in your workflow without making the processing feel heavier than necessary.
   
-Many alternatives to coding exist when using Git : RStudio, Github Desktop, etc. They can make Git much easier.
+Many alternatives to coding in the terminal exist when using Git, such as RStudio or GitHub Desktop. These alternatives can make using Git much easier. To learn how to use Git directly from Rstudio without having to learn a single command for the terminal, we recommend the following (free) online book by Jenny Bryan, prof of data science at UBC and senior software engineer at RStudio:
 
-## Other honorable mentions
-
-- Dropbox  
-  
-- RStudioCloud  
+https://happygitwithr.com/  
 
